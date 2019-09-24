@@ -56,18 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="Regular Life, Happy Coding.">
-<meta name="keywords" content="programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alex&#39; Blog">
-<meta property="og:url" content="http://alexixu.github.io/archives/index.html">
+  <meta name="description" content="问题：virtualenv activate 后失效问题描述Virtualenv 经常用于python环境的隔离，但有时候执行了activate命令，终端显示已经进入对应环境（终端前面会显示环境名称）。此时，执行python会发现并没有使用对应环境下的python解释器，而是调用的系统的python解释器。 导致原因执行source activate 其实是加载activate这个脚本，打开脚本可">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="virtualenv失效原因">
+<meta property="og:url" content="http://alexixu.github.io/2018/06/23/virtualenv失效原因/index.html">
 <meta property="og:site_name" content="Alex&#39; Blog">
-<meta property="og:description" content="Regular Life, Happy Coding.">
+<meta property="og:description" content="问题：virtualenv activate 后失效问题描述Virtualenv 经常用于python环境的隔离，但有时候执行了activate命令，终端显示已经进入对应环境（终端前面会显示环境名称）。此时，执行python会发现并没有使用对应环境下的python解释器，而是调用的系统的python解释器。 导致原因执行source activate 其实是加载activate这个脚本，打开脚本可">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-09-24T12:52:11.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alex&#39; Blog">
-<meta name="twitter:description" content="Regular Life, Happy Coding.">
-  <link rel="canonical" href="http://alexixu.github.io/archives/">
+<meta name="twitter:title" content="virtualenv失效原因">
+<meta name="twitter:description" content="问题：virtualenv activate 后失效问题描述Virtualenv 经常用于python环境的隔离，但有时候执行了activate命令，终端显示已经进入对应环境（终端前面会显示环境名称）。此时，执行python会发现并没有使用对应环境下的python解释器，而是调用的系统的python解释器。 导致原因执行source activate 其实是加载activate这个脚本，打开脚本可">
+  <link rel="canonical" href="http://alexixu.github.io/2018/06/23/virtualenv失效原因/">
 
 
 <script id="page-configurations">
@@ -75,13 +76,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>Archive | Alex' Blog</title>
+  <title>virtualenv失效原因 | Alex' Blog</title>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148490657-1"></script>
   <script>
@@ -196,18 +197,6 @@
 
     
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
 </nav>
 </div>
     </header>
@@ -225,104 +214,154 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://alexixu.github.io/2018/06/23/virtualenv失效原因/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alexixu">
+      <meta itemprop="description" content="Regular Life, Happy Coding.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alex' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">virtualenv失效原因
+
           
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2018-06-23 18:22:00" itemprop="dateCreated datePublished" datetime="2018-06-23T18:22:00+08:00">2018-06-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-24 20:52:11" itemprop="dateModified" datetime="2019-09-24T20:52:11+08:00">2019-09-24</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
         
-        <span class="collection-header">Um..! 2 posts in total. Keep on posting.</span>
-      </div>
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/06/23/virtualenv失效原因/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2018/06/23/virtualenv失效原因/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="问题：virtualenv-activate-后失效"><a href="#问题：virtualenv-activate-后失效" class="headerlink" title="问题：virtualenv activate 后失效"></a>问题：virtualenv activate 后失效</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>Virtualenv 经常用于python环境的隔离，但有时候执行了activate命令，终端显示已经进入对应环境（终端前面会显示环境名称）。此时，执行python会发现并没有使用对应环境下的python解释器，而是调用的系统的python解释器。</p>
+<h3 id="导致原因"><a href="#导致原因" class="headerlink" title="导致原因"></a>导致原因</h3><p>执行source activate 其实是加载activate这个脚本，打开脚本可以看到</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">VIRTUAL_ENV=<span class="string">"/Users/someone/Documents/python_env/python3"</span></span><br><span class="line"><span class="built_in">export</span> VIRTUAL_ENV</span><br><span class="line"></span><br><span class="line">_OLD_VIRTUAL_PATH=<span class="string">"<span class="variable">$PATH</span>"</span></span><br><span class="line">PATH=<span class="string">"<span class="variable">$VIRTUAL_ENV</span>/bin:<span class="variable">$PATH</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
+
+<p>上述脚本其实就是virtualenv 切换python环境的实现方式，通过在环境变量的最前面添加当前环境的python解释器的路径完成。需要注意的是，这个路径是在脚本中写死的，所以如果你将python环境的目录修改了，那么此时会将一个错误的python解释器路径添加到环境变量当中，当然也就找不到对应的解释器，于是系统会接着往下找，最后找到系统的解释器。</p>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>将VIRTUAL_ENV这个环境变量设置为正确的目录路径。</p>
+
+    </div>
+
+    
+    
+    
+        
       
 
-      
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/python/" rel="tag"># python</a>
+            
+          </div>
+        
 
-  
-  
+        
 
-  
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2017/09/24/线性模型/" rel="next" title="机器学习-线性模型">
+                  <i class="fa fa-chevron-left"></i> 机器学习-线性模型
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
     
-    <div class="collection-year">
-      <h1 class="collection-header">2018</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2018/06/23/virtualenv失效原因/" itemprop="url">
-            <span itemprop="name">virtualenv失效原因</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-23T18:22:00+08:00"
-              content="2018-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-    
-    <div class="collection-year">
-      <h1 class="collection-header">2017</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2017/09/24/线性模型/" itemprop="url">
-            <span itemprop="name">机器学习-线性模型</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-24T21:09:53+08:00"
-              content="2017-09-24">
-          09-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-
-    </div>
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -337,6 +376,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -349,6 +393,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题：virtualenv-activate-后失效"><span class="nav-number">1.</span> <span class="nav-text">问题：virtualenv activate 后失效</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导致原因"><span class="nav-number">1.2.</span> <span class="nav-text">导致原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题解决"><span class="nav-number">1.3.</span> <span class="nav-text">问题解决</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

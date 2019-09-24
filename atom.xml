@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://alexixu.github.io/"/>
-  <updated>2019-09-22T08:45:18.073Z</updated>
+  <updated>2019-09-24T12:52:11.607Z</updated>
   <id>http://alexixu.github.io/</id>
   
   <author>
@@ -17,24 +17,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://alexixu.github.io/2019/09/22/hello-world/"/>
-    <id>http://alexixu.github.io/2019/09/22/hello-world/</id>
-    <published>2019-09-22T08:45:18.072Z</published>
-    <updated>2019-09-22T08:45:18.073Z</updated>
+    <title>virtualenv失效原因</title>
+    <link href="http://alexixu.github.io/2018/06/23/virtualenv%E5%A4%B1%E6%95%88%E5%8E%9F%E5%9B%A0/"/>
+    <id>http://alexixu.github.io/2018/06/23/virtualenv失效原因/</id>
+    <published>2018-06-23T10:22:00.000Z</published>
+    <updated>2019-09-24T12:52:11.607Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="问题：virtualenv-activate-后失效"><a href="#问题：virtualenv-activate-后失效" class="headerlink" title="问题：virtualenv activate 后失效"></a>问题：virtualenv activate 后失效</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>Virtualenv 经常用于python环境的隔离，但有时候执行了activate命令，终端显示已经进入对应环境（终端前面会显示环境名称）。此时，执行python会发现并没有使用对应环境下的python解释器，而是调用的系统的python解释器。</p><h3 id="导致原因"><a href="#导致原因" class="headerlink" title="导致原因"></a>导致原因</h3><p>执行source activate 其实是加载activate这个脚本，打开脚本可以看到</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">VIRTUAL_ENV=<span class="string">"/Users/someone/Documents/python_env/python3"</span></span><br><span class="line"><span class="built_in">export</span> VIRTUAL_ENV</span><br><span class="line"></span><br><span class="line">_OLD_VIRTUAL_PATH=<span class="string">"<span class="variable">$PATH</span>"</span></span><br><span class="line">PATH=<span class="string">"<span class="variable">$VIRTUAL_ENV</span>/bin:<span class="variable">$PATH</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure><p>上述脚本其实就是virtualenv 切换python环境的实现方式，通过在环境变量的最前面添加当前环境的python解释器的路径完成。需要注意的是，这个路径是在脚本中写死的，所以如果你将python环境的目录修改了，那么此时会将一个错误的python解释器路径添加到环境变量当中，当然也就找不到对应的解释器，于是系统会接着往下找，最后找到系统的解释器。</p><h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>将VIRTUAL_ENV这个环境变量设置为正确的目录路径。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;h2 id=&quot;问题：virtualenv-activate-后失效&quot;&gt;&lt;a href=&quot;#问题：virtualenv-activate-后失效&quot; class=&quot;headerlink&quot; title=&quot;问题：virtualenv activate 后失效&quot;&gt;&lt;/a&gt;问题：virtu
       
     
     </summary>
     
     
+      <category term="python" scheme="http://alexixu.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://alexixu.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习-线性模型</title>
+    <link href="http://alexixu.github.io/2017/09/24/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://alexixu.github.io/2017/09/24/线性模型/</id>
+    <published>2017-09-24T13:09:53.000Z</published>
+    <updated>2019-09-24T15:40:13.101Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h1><h2 id="1-基本形式"><a href="#1-基本形式" class="headerlink" title="1.基本形式"></a>1.基本形式</h2><p>线性模型的基本思想是通过属性或者特征的线性组合来预测的函数. 数学表达如下:</p><img src="/2017/09/24/线性模型/liner_model_repress.png"><p>更通俗的向量表达为:</p><img src="/2017/09/24/线性模型/liner_model_vec_repress.png"><p>线性模型比较简单, 并且具有较好的解释性. 很多非线性模型实际上是通过将特征映射到高维空间当中或者通过引入层级结构来实现非线性模型.<br>经典的线性模型有: 线性回归, 逻辑回归.</p><h2 id="2-线性回归"><a href="#2-线性回归" class="headerlink" title="2. 线性回归"></a>2. 线性回归</h2><p>基于已有数据集 D = {(x<sub>1</sub>, y<sub>1</sub> ) …, (x<sub>m</sub>, y<sub>m</sub> )}, 其中x为向量, 表示特征集合. y为实数. 线性回归会取学习到一个线性模型, 使得根据特征向量x, 可以尽可能精确的预测y. </p><img src="/2017/09/24/线性模型/liner_model_learn_what.png"><p>为了确定模型中的参数w, b. 我们首先需要找到一个模型的性能度量. 在回归任务当中, 比较常用的衡量指标是: 均方误差. 这样, 目标函数便是最小化均方误差, 也叫做最小二乘法.<br>均方误差具有较好的几何意义, 它对应了常用的欧几里得距离. </p><img src="/2017/09/24/线性模型/liner_model_wb_target.png"><p>求解w和b的上述过程, 叫做 线性回归模型的最小二乘 “参数估计”.  由于上述函数是关于w和b的凸函数(这个地方我很好奇 为什么不是叫凹函数,从文字象形上来说 更像凹形状), 因为有这样的性质, 直接求导, 导数为0的点必是最优解, 也是上述函数的最小值点. </p><img src="/2017/09/24/线性模型/wb_derivative.png"><p>解得:</p><img src="/2017/09/24/线性模型/w_solution.png"><img src="/2017/09/24/线性模型/b_solution.png"><p>计算机中, 利用矩阵可以通过并行计算加速, 矩阵形式的表示的求解如下:<br>首先为了计算, 做一点变化, 首先在x的特征向量当中添加一个常数项 1, 这样可以让b 添加w中.即:</p><img src="/2017/09/24/线性模型/w_b_add.png"><p>于是, 矩阵表示的目标函数为:</p><img src="/2017/09/24/线性模型/w_vec_solution.png"><p>对w求导可以得到:</p><img src="/2017/09/24/线性模型/w_vector_solution.png"><img src="/2017/09/24/线性模型/w_youjie.png"><p>实际情况是, 由于样本数量较多, 并且 有误差的存在, X<sup>T</sup>X不是满秩矩阵, 这个时候可以通过引入正则化变量</p><p>最后说一下广义线性模型, 即在输出的结果中, 使之成为一个可微函数的的输入. </p><h2 id="3-逻辑回归"><a href="#3-逻辑回归" class="headerlink" title="3.逻辑回归"></a>3.逻辑回归</h2><h3 id="i-模型表示"><a href="#i-模型表示" class="headerlink" title="i 模型表示"></a>i 模型表示</h3><p>上述线性回归返回的是一个连续值, 那么在做进行分类任务的时候, 需要将连续值转换为0/1值.<br>可以想到的是单位阶跃函数, 和 sigmoid函数. 这里利用广义线性模型, 将求得的连续值作为可微函数输入.<br>由于单位阶跃函数不可微, 所以一般都会选择sigmoid函数, 将输出的值, 记作z 转换为0 -1 之间的连续值.<br>sigmoid函数可以表示为:</p><img src="/2017/09/24/线性模型/sigmoid.png"><p>最后输出可以表示为:</p><img src="/2017/09/24/线性模型/logistic_function.png"><h3 id="ii-目标函数-损失函数"><a href="#ii-目标函数-损失函数" class="headerlink" title="ii 目标函数(损失函数)"></a>ii 目标函数(损失函数)</h3><p>经过转换后, 我们可以将y的值看作样本为正例的概率, 将1 - y 看作样本为负例的概率. 然后通过”极大似然法”来对参数w和b进行估计.</p><img src="/2017/09/24/线性模型/logistic_repress.gif"><p>这里用theta将w和b 一起表示<br>单个样本的概率表示为:</p><img src="/2017/09/24/线性模型/probability.gif"><p>极大似然函数为:</p><img src="/2017/09/24/线性模型/L_func_logistic_without_log.gif"><p>取对数后:</p><img src="/2017/09/24/线性模型/L_func_logistic.gif"><p>结果就是要最大话上面的公式, 最大化和最小化是等价的, 但一般都会选择转化为最小化. 也就是在上述公式前面添加负号.</p><h3 id="iii-通过梯度下降求解"><a href="#iii-通过梯度下降求解" class="headerlink" title="iii 通过梯度下降求解"></a>iii 通过梯度下降求解</h3><p>要使得最小化下面公式:</p><img src="/2017/09/24/线性模型/logistic_loss_function.png"><p>采用梯度下降的方式完成.<br>此时通过链式求导, 并且注意利用性质:<br>g(z)的导数为: g(z)*(1 - g(z))<br>手工求解如下(这个地方用到损失函数多求了一个平均):</p><img src="/2017/09/24/线性模型/logistic_solution.jpeg"><p>其中, a为学习率, 当模型训练无法收敛时, 可以尝试将学习率调小</p><h3 id="iiii-正则化"><a href="#iiii-正则化" class="headerlink" title="iiii 正则化"></a>iiii 正则化</h3><p>在目标函数中, 为了防止过拟合, 一般会加入正则项.<br>通常选用的正则项为L1正则和L2正则.<br>这两种正则化的区别是L1正则可以更容易产生稀疏解.</p><h2 id="4-其它"><a href="#4-其它" class="headerlink" title="4.其它"></a>4.其它</h2><p>逻辑回归是一种判别模型, 直接对P(y|x)建模. 生成式模型则是对数据的联合分布建模. 通过贝叶斯公式计算个类别的后验概率, 即:</p><img src="/2017/09/24/线性模型/generative_model.png"><p>事实上, 当P(x|y)的分布属于指数分布族时, 可以将生成式推导到判别式模型.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;线性模型&quot;&gt;&lt;a href=&quot;#线性模型&quot; class=&quot;headerlink&quot; title=&quot;线性模型&quot;&gt;&lt;/a&gt;线性模型&lt;/h1&gt;&lt;h2 id=&quot;1-基本形式&quot;&gt;&lt;a href=&quot;#1-基本形式&quot; class=&quot;headerlink&quot; title=&quot;1.基本形
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="http://alexixu.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习 逻辑回归 线性回归" scheme="http://alexixu.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
     
   </entry>
   
