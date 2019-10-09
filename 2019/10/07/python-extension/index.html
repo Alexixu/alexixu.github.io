@@ -56,18 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="Regular Life, Happy Coding.">
+  <meta name="description" content="什么是扩展？能够被整合或者导入到其它python脚本中运行的代码，都可以称之为扩展。可以用python写一个package作为扩展，也可以通过C/C++或者JAVA等语言为python写扩展。 为什么需要扩展有以下三个方面  满足新功能等需要 提升性能 增强代码私密性  一些用python实现不了的功能，需要通过非python代码实现，比如调用GPU等。 解释型语言的效率相比编译型速度会慢一些，在">
 <meta name="keywords" content="programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alex&#39; Blog">
-<meta property="og:url" content="http://alexixu.github.io/categories/机器学习/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python扩展介绍">
+<meta property="og:url" content="http://alexixu.github.io/2019/10/07/python-extension/index.html">
 <meta property="og:site_name" content="Alex&#39; Blog">
-<meta property="og:description" content="Regular Life, Happy Coding.">
+<meta property="og:description" content="什么是扩展？能够被整合或者导入到其它python脚本中运行的代码，都可以称之为扩展。可以用python写一个package作为扩展，也可以通过C/C++或者JAVA等语言为python写扩展。 为什么需要扩展有以下三个方面  满足新功能等需要 提升性能 增强代码私密性  一些用python实现不了的功能，需要通过非python代码实现，比如调用GPU等。 解释型语言的效率相比编译型速度会慢一些，在">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-10-07T09:49:05.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alex&#39; Blog">
-<meta name="twitter:description" content="Regular Life, Happy Coding.">
-  <link rel="canonical" href="http://alexixu.github.io/categories/机器学习/">
+<meta name="twitter:title" content="Python扩展介绍">
+<meta name="twitter:description" content="什么是扩展？能够被整合或者导入到其它python脚本中运行的代码，都可以称之为扩展。可以用python写一个package作为扩展，也可以通过C/C++或者JAVA等语言为python写扩展。 为什么需要扩展有以下三个方面  满足新功能等需要 提升性能 增强代码私密性  一些用python实现不了的功能，需要通过非python代码实现，比如调用GPU等。 解释型语言的效率相比编译型速度会慢一些，在">
+  <link rel="canonical" href="http://alexixu.github.io/2019/10/07/python-extension/">
 
 
 <script id="page-configurations">
@@ -75,13 +76,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Category: 机器学习 | Alex' Blog</title>
+  <title>Python扩展介绍 | Alex' Blog</title>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148490657-1"></script>
   <script>
@@ -205,18 +206,6 @@
 
     
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
 </nav>
 </div>
     </header>
@@ -234,64 +223,141 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block category">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">机器学习<small>Category</small>
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://alexixu.github.io/2019/10/07/python-extension/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alexixu">
+      <meta itemprop="description" content="Regular Life, Happy Coding.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alex' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Python扩展介绍
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-07 17:32:32 / Modified: 17:49:05" itemprop="dateCreated datePublished" datetime="2019-10-07T17:32:32+08:00">2019-10-07</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/10/07/python-extension/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/07/python-extension/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <h2 id="什么是扩展？"><a href="#什么是扩展？" class="headerlink" title="什么是扩展？"></a>什么是扩展？</h2><p>能够被整合或者导入到其它python脚本中运行的代码，都可以称之为扩展。可以用python写一个package作为扩展，也可以通过C/C++或者JAVA等语言为python写扩展。</p>
+<h2 id="为什么需要扩展"><a href="#为什么需要扩展" class="headerlink" title="为什么需要扩展"></a>为什么需要扩展</h2><p>有以下三个方面</p>
+<ol>
+<li>满足新功能等需要</li>
+<li>提升性能</li>
+<li>增强代码私密性</li>
+</ol>
+<p>一些用python实现不了的功能，需要通过非python代码实现，比如调用GPU等。</p>
+<p>解释型语言的效率相比编译型速度会慢一些，在聚焦到核心代码后，通过扩展可以加速这部分代码。</p>
+<p>同样，解释型语言暴露源代码，扩展可以免于暴露源代码，增加私密性。</p>
+<h2 id="扩展步骤"><a href="#扩展步骤" class="headerlink" title="扩展步骤"></a>扩展步骤</h2><p>3个主要步骤</p>
+<ol>
+<li>完成扩展到功能代码实现</li>
+<li>利用样版包装代码</li>
+<li>编译测试</li>
+</ol>
+<h4 id="第一步-完成功能代码实现"><a href="#第一步-完成功能代码实现" class="headerlink" title="第一步 完成功能代码实现"></a>第一步 完成功能代码实现</h4><p>此时，可以通过编写main函数的方式，对代码功能性进行测试，保障代码正确性。这边，我给出一个简单的例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br></pre></td></tr></table></figure>
 
-  
-  
 
-  
+    </div>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2017</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    
+    
         
-          <a class="post-title-link" href="/2017/09/24/线性模型/" itemprop="url">
-            <span itemprop="name">机器学习-线性模型</span>
-          </a>
+      
+
+      <footer class="post-footer">
+
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-24T21:09:53+08:00"
-              content="2017-09-24">
-          09-24
-        </time>
-      </div>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/30/clean-architecture-notes/" rel="next" title="架构整洁之道读书笔记">
+                  <i class="fa fa-chevron-left"></i> 架构整洁之道读书笔记
+                </a>
+              
+            </div>
 
-    </header>
-  </article>
+            <span class="post-nav-divider"></span>
 
-
-
-    </div>
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/10/09/Tensorflow-install-from-source/" rel="prev" title="Tensorflow2.0源码安装">
+                  Tensorflow2.0源码安装 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -306,6 +372,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -318,6 +389,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是扩展？"><span class="nav-number">1.</span> <span class="nav-text">什么是扩展？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要扩展"><span class="nav-number">2.</span> <span class="nav-text">为什么需要扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展步骤"><span class="nav-number">3.</span> <span class="nav-text">扩展步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步-完成功能代码实现"><span class="nav-number">3.0.1.</span> <span class="nav-text">第一步 完成功能代码实现</span></a></li></ol></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

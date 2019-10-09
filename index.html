@@ -227,6 +227,371 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://alexixu.github.io/2019/10/09/Tensorflow-install-from-source/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alexixu">
+      <meta itemprop="description" content="Regular Life, Happy Coding.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alex' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/09/Tensorflow-install-from-source/" class="post-title-link" itemprop="url">Tensorflow2.0源码安装</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-09 20:14:16 / Modified: 20:28:02" itemprop="dateCreated datePublished" datetime="2019-10-09T20:14:16+08:00">2019-10-09</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/10/09/Tensorflow-install-from-source/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/09/Tensorflow-install-from-source/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装步骤（mac）"><a href="#安装步骤（mac）" class="headerlink" title="## 安装步骤（mac）"></a>## 安装步骤（mac）</h2><h3 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h3><p>操作系统：Mac os</p>
+<p>环境：Python3，JDK 8</p>
+<h3 id="安装编译工具"><a href="#安装编译工具" class="headerlink" title="安装编译工具"></a>安装编译工具</h3><p>安装bazel；推荐使用homebrew安装</p>
+<blockquote>
+<p>Note: 版本要求要低于0.26.1，所以在安装时候需要指定版本，选择合适的formula.</p>
+<p>这里给出一个合适的地址：<a href="https://raw.githubusercontent.com/bazelbuild/homebrew-tap/c8a0ccc2a8b442d9887d88c6380f835f533ffd47/Formula/bazel.rb" target="_blank" rel="noopener">https://raw.githubusercontent.com/bazelbuild/homebrew-tap/c8a0ccc2a8b442d9887d88c6380f835f533ffd47/Formula/bazel.rb</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install https://raw.githubusercontent.com/bazelbuild/homebrew-tap/c8a0ccc2a8b442d9887d88c6380f835f533ffd47/Formula/bazel.rb</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> tensorflow</span><br><span class="line">git checkout (branch you want to install)</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install -U --user pip six numpy wheel setuptools mock <span class="string">'future&gt;=0.17.1'</span></span><br><span class="line">pip install -U --user keras_applications==1.0.6 --no-deps</span><br><span class="line">pip install -U --user keras_preprocessing==1.0.5 --no-deps</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+
+<p>这里大部分都选择默认的no，可以开启XLA优化</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build //tensorflow/tools/pip_package:build_pip_package</span><br></pre></td></tr></table></figure>
+
+<p>接下来是漫长的等待。得到一个whl包，通过pip安装即可将tensorflow安装至python环境。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://alexixu.github.io/2019/10/07/python-extension/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alexixu">
+      <meta itemprop="description" content="Regular Life, Happy Coding.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alex' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/07/python-extension/" class="post-title-link" itemprop="url">Python扩展介绍</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-07 17:32:32 / Modified: 17:49:05" itemprop="dateCreated datePublished" datetime="2019-10-07T17:32:32+08:00">2019-10-07</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/10/07/python-extension/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/07/python-extension/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="什么是扩展？"><a href="#什么是扩展？" class="headerlink" title="什么是扩展？"></a>什么是扩展？</h2><p>能够被整合或者导入到其它python脚本中运行的代码，都可以称之为扩展。可以用python写一个package作为扩展，也可以通过C/C++或者JAVA等语言为python写扩展。</p>
+<h2 id="为什么需要扩展"><a href="#为什么需要扩展" class="headerlink" title="为什么需要扩展"></a>为什么需要扩展</h2><p>有以下三个方面</p>
+<ol>
+<li>满足新功能等需要</li>
+<li>提升性能</li>
+<li>增强代码私密性</li>
+</ol>
+<p>一些用python实现不了的功能，需要通过非python代码实现，比如调用GPU等。</p>
+<p>解释型语言的效率相比编译型速度会慢一些，在聚焦到核心代码后，通过扩展可以加速这部分代码。</p>
+<p>同样，解释型语言暴露源代码，扩展可以免于暴露源代码，增加私密性。</p>
+<h2 id="扩展步骤"><a href="#扩展步骤" class="headerlink" title="扩展步骤"></a>扩展步骤</h2><p>3个主要步骤</p>
+<ol>
+<li>完成扩展到功能代码实现</li>
+<li>利用样版包装代码</li>
+<li>编译测试</li>
+</ol>
+<h4 id="第一步-完成功能代码实现"><a href="#第一步-完成功能代码实现" class="headerlink" title="第一步 完成功能代码实现"></a>第一步 完成功能代码实现</h4><p>此时，可以通过编写main函数的方式，对代码功能性进行测试，保障代码正确性。这边，我给出一个简单的例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://alexixu.github.io/2019/09/30/clean-architecture-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alexixu">
+      <meta itemprop="description" content="Regular Life, Happy Coding.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alex' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/30/clean-architecture-notes/" class="post-title-link" itemprop="url">架构整洁之道读书笔记</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-30 14:07:23 / Modified: 19:26:40" itemprop="dateCreated datePublished" datetime="2019-09-30T14:07:23+08:00">2019-09-30</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件架构/" itemprop="url" rel="index"><span itemprop="name">软件架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/09/30/clean-architecture-notes/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/30/clean-architecture-notes/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="第一章-什么是架构"><a href="#第一章-什么是架构" class="headerlink" title="第一章 什么是架构"></a>第一章 什么是架构</h2><h2 id="架构的目标"><a href="#架构的目标" class="headerlink" title="架构的目标"></a>架构的目标</h2><p>以最小的成本构建和维护一个软件系统，满足业务需求（包括当前需求和未来需求）。</p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol>
+<li>忽视好的设计的作用，导致后续维护成本持续增长。</li>
+<li>容忍糟糕的代码，为了临时上线。</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p>慢但是稳，是成功的秘诀。要跑的快，先要跑得稳。</p>
+<h2 id="第二章-两个价值维度"><a href="#第二章-两个价值维度" class="headerlink" title="第二章 两个价值维度"></a>第二章 两个价值维度</h2><h3 id="软件的价值"><a href="#软件的价值" class="headerlink" title="软件的价值"></a>软件的价值</h3><ol>
+<li>行为价值（满足业务需求的行为）</li>
+<li>架构价值（软件灵活性，适应后续的需求变更和增加）</li>
+</ol>
+<h3 id="研发人员的职责"><a href="#研发人员的职责" class="headerlink" title="研发人员的职责"></a>研发人员的职责</h3><p>业务肯定认为行为价值更重要，但是软件开发人员应该重视架构价值，因为一个不可变更或者不可维护的软件系统的价值会最终变成0，而一个维护行好的软件系统会持续产生价值。</p>
+<p>业务部门并不对系统的架构价值负责，所以研发人员需要自己平衡好架构价值，并为此负责，与其他部门协调。</p>
+<h2 id="第三章-编程范式"><a href="#第三章-编程范式" class="headerlink" title="第三章 编程范式"></a>第三章 编程范式</h2><h3 id="结构化编程"><a href="#结构化编程" class="headerlink" title="结构化编程"></a>结构化编程</h3><p>结构化编程对程序控制权的直接转移进行了限制和规范。</p>
+<p>限制goto</p>
+<h3 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h3><p>对程序控制权的间接转移进行了限制和规范</p>
+<p>限制函数指针的使用（通过多态）</p>
+<h3 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h3><p>对程序的赋值进行了限制和规范</p>
+<p>不可变性</p>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>三个编程范式都是限制程序员行为。</p>
+<h2 id="第四章-结构化编程"><a href="#第四章-结构化编程" class="headerlink" title="第四章 结构化编程"></a>第四章 结构化编程</h2><p>通过结构化编程，将软件拆分为一个个可推导的单元，通过测试证明这些程序是无法证伪的，则认为程序正确。</p>
+<p>按功能性降解拆分是软件设计的最佳实践之一。</p>
+<h2 id="第五章-面向对象编程"><a href="#第五章-面向对象编程" class="headerlink" title="第五章 面向对象编程"></a>第五章 面向对象编程</h2><h3 id="三大特性"><a href="#三大特性" class="headerlink" title="三大特性"></a>三大特性</h3><ol>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ol>
+<p>三个特性并不是面向对象编程的创新，之前就通过其他方式实现，但是需要人为遵守规定。面向对象编程消除了人工遵守的必要，通过语言层面实现多态，更简单和安全。</p>
+<h3 id="多态的作用"><a href="#多态的作用" class="headerlink" title="多态的作用"></a>多态的作用</h3><ol>
+<li>与具体实现无关</li>
+<li>依赖反转（引入接口）</li>
+</ol>
+<p>通过控制组件的依赖，让高层次策略组件和底层实现组件可以相分离，实现独立部署。</p>
+<h2 id="第六章-函数式编程"><a href="#第六章-函数式编程" class="headerlink" title="第六章 函数式编程"></a>第六章 函数式编程</h2><p>通过变量的不可变性，充分利用多线程的好处，同时避免了变量更改导致的竞争问题。</p>
+<p>如果计算和存储无限制的话，不可变性在程序设计中说可行的，例如git版本管理。</p>
+<p>在实际情况中，一般说将可变性隔离起来，将不可变量和可变量隔离到不同的组件当中，用合适的机制（锁，事务）保护可变量。</p>
+<h2 id="第七章-单一职责原则"><a href="#第七章-单一职责原则" class="headerlink" title="第七章 单一职责原则"></a>第七章 单一职责原则</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>一个软件模块，只对某一类行为负责，只对一类客户负责。</p>
+<h3 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h3><p>单一职责原则主要用于界定函数和类之间的关系，同时，在更高的层面上，比如组件层面，有一个类似的原则，共同闭包原则，在软件架构层面，用于界定架构的边界。</p>
+<h2 id="第八章-开闭原则"><a href="#第八章-开闭原则" class="headerlink" title="第八章 开闭原则"></a>第八章 开闭原则</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>易于扩展，抗拒修改</p>
+<h3 id="Note-2"><a href="#Note-2" class="headerlink" title="Note"></a>Note</h3><p>高阶组件不因为低阶组件更改而影响</p>
+<p>业务逻辑是核心抽象</p>
+<h2 id="第九章-里氏替换"><a href="#第九章-里氏替换" class="headerlink" title="第九章 里氏替换"></a>第九章 里氏替换</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>所有引用基类的地方必须能透明地使用其子类的对象。</p>
+<p><strong>子类可以扩展父类的功能，但不能改变父类原有的功能。</strong></p>
+<h3 id="Note-3"><a href="#Note-3" class="headerlink" title="Note"></a>Note</h3><p>违反LSP原则，系统会不得不增加很多复杂的应对机制。比如各种if else语句</p>
+<h2 id="第十章-接口隔离原则"><a href="#第十章-接口隔离原则" class="headerlink" title="第十章 接口隔离原则"></a>第十章 接口隔离原则</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p>不应该强迫客户依赖于它们不用的方法。</p>
+<p>任何让用户依赖他们不需要的东西都是有害的。</p>
+<h3 id="Note-4"><a href="#Note-4" class="headerlink" title="Note"></a>Note</h3><p>不必要的功能代码，导致不必要的重新部署和意外的错误。</p>
+<h2 id="第十一章-依赖反转原则"><a href="#第十一章-依赖反转原则" class="headerlink" title="第十一章 依赖反转原则"></a>第十一章 依赖反转原则</h2><h3 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h3><p>使得高层次的模块不依赖于低层次的模块的实现细节，依赖关系被颠倒（反转），从而使得低层次模块依赖于高层次模块的需求抽象。</p>
+<h3 id="规定"><a href="#规定" class="headerlink" title="规定"></a>规定</h3><ol>
+<li>高层次的模块不应该依赖于低层次的模块，两者都应该依赖于抽象接口。</li>
+<li>抽象接口不应该依赖于具体实现。而具体实现则应该依赖于抽象接口。</li>
+</ol>
+<h3 id="Note-5"><a href="#Note-5" class="headerlink" title="Note"></a>Note</h3><p>接口比实现更稳定</p>
+<p>不可避免地依赖具体实现，比如操作系统，但是这部分很少改动。</p>
+<p>要重点关注经常变动的部分</p>
+<p>使得代码依赖是单向的</p>
+<h2 id="第十二章-组件"><a href="#第十二章-组件" class="headerlink" title="第十二章 组件"></a>第十二章 组件</h2><h3 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h3><p>组件是最小部署单元</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://alexixu.github.io/2018/06/23/virtualenv失效原因/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -553,7 +918,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -566,7 +931,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
