@@ -256,11 +256,19 @@
                 
               
 
-              <time title="Created: 2019-10-09 20:14:16 / Modified: 20:33:42" itemprop="dateCreated datePublished" datetime="2019-10-09T20:14:16+08:00">2019-10-09</time>
+              <time title="Created: 2019-10-09 20:14:16" itemprop="dateCreated datePublished" datetime="2019-10-09T20:14:16+08:00">2019-10-09</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-11 10:17:39" itemprop="dateModified" datetime="2019-10-11T10:17:39+08:00">2019-10-11</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -320,7 +328,10 @@
 <p>这里大部分都选择默认的no，可以开启XLA优化</p>
 <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build //tensorflow/tools/pip_package:build_pip_package</span><br></pre></td></tr></table></figure>
 
-<p>接下来是漫长的等待。得到一个whl包，通过pip安装即可将tensorflow安装至python环境。</p>
+<p>接下来是漫长的等待，我的机器编译了一天（mbp）。</p>
+<h3 id="编译python包"><a href="#编译python包" class="headerlink" title="编译python包"></a>编译python包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</span><br></pre></td></tr></table></figure>
+
+<p>得到一个whl包，通过pip安装即可将tensorflow安装至python环境。 </p>
 
         
       
