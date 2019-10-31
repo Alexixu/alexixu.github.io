@@ -64,12 +64,12 @@
 <meta property="og:site_name" content="Alex&#39; Blog">
 <meta property="og:description" content="背景介绍机器翻译在神经网络之后得到了长足的发展。随着国际化的趋势，机器翻译在加强国际交流中的作用日益明显。本文将介绍一下基于最新的神经网络翻译架构Transformer来完成双语翻译。 Transformer架构结构图Transformer架构图如下，总体可以分为两部分，编码器和解码器（Encoder和Decoder）。编码器和解码器分别有两种基本单元堆叠而成。基本单元又主要分为两种模块，Mult">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="http://alexixu.github.io/2019/10/23/machine-translation/machine-translation/image-20191023191818320.png">
-<meta property="og:updated_time" content="2019-10-23T12:43:37.075Z">
+<meta property="og:image" content="http://alexixu.github.io/2019/10/23/machine-translation/image-20191023191818320.png">
+<meta property="og:updated_time" content="2019-10-31T11:37:41.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神经网络机器翻译实践">
 <meta name="twitter:description" content="背景介绍机器翻译在神经网络之后得到了长足的发展。随着国际化的趋势，机器翻译在加强国际交流中的作用日益明显。本文将介绍一下基于最新的神经网络翻译架构Transformer来完成双语翻译。 Transformer架构结构图Transformer架构图如下，总体可以分为两部分，编码器和解码器（Encoder和Decoder）。编码器和解码器分别有两种基本单元堆叠而成。基本单元又主要分为两种模块，Mult">
-<meta name="twitter:image" content="http://alexixu.github.io/2019/10/23/machine-translation/machine-translation/image-20191023191818320.png">
+<meta name="twitter:image" content="http://alexixu.github.io/2019/10/23/machine-translation/image-20191023191818320.png">
   <link rel="canonical" href="http://alexixu.github.io/2019/10/23/machine-translation/">
 
 
@@ -259,11 +259,19 @@
                 
               
 
-              <time title="Created: 2019-10-23 19:19:37 / Modified: 20:43:37" itemprop="dateCreated datePublished" datetime="2019-10-23T19:19:37+08:00">2019-10-23</time>
+              <time title="Created: 2019-10-23 19:19:37" itemprop="dateCreated datePublished" datetime="2019-10-23T19:19:37+08:00">2019-10-23</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-31 19:37:41" itemprop="dateModified" datetime="2019-10-31T19:37:41+08:00">2019-10-31</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -307,7 +315,8 @@
       
         <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>机器翻译在神经网络之后得到了长足的发展。随着国际化的趋势，机器翻译在加强国际交流中的作用日益明显。本文将介绍一下基于最新的神经网络翻译架构Transformer来完成双语翻译。</p>
 <h2 id="Transformer架构"><a href="#Transformer架构" class="headerlink" title="Transformer架构"></a>Transformer架构</h2><h3 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h3><p>Transformer架构图如下，总体可以分为两部分，编码器和解码器（Encoder和Decoder）。编码器和解码器分别有两种基本单元堆叠而成。基本单元又主要分为两种模块，Multi-Head Attention和Feed Forward Network。</p>
-<p><img src="machine-translation/image-20191023191818320.png" alt="image-20191023191818320"></p>
+<img src="/2019/10/23/machine-translation/image-20191023191818320.png">
+
 <p>###Multi-Head Attention</p>
 <p>首先说一下Attention，可以简单用下面一个公式说明白：<br>$$<br>Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V<br>$$<br>这边采用$\sqrt{d_k}$进行缩放，因为当两个纬度增加时，向量的点基也会增大。</p>
 <p>Multi Head Attention的过程就是先将Q，K，V映射到不同的子空间当中，再对不同的子空间做Attention，然后将结果联合起来，再通过一层全连接网络得到最后结果。<br>$$<br>MultiHead(Q,K,V) = Concat(head_1, head_2…)W^o<br>\\<br>where\ head_i = Attention(QW^q,KW^k,VW^v)<br>$$<br>其中， $W^q$,$W^k$,$W^v$的第二维度为各自初始维度d除以head数。</p>
