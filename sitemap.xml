@@ -2,23 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://alexixu.github.io/2019/10/27/reinforcement-learning01/</loc>
+    
+    <lastmod>2020-06-10T15:15:14.984Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://alexixu.github.io/2019/10/23/machine-translation/</loc>
     
     <lastmod>2019-10-31T11:37:41.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://alexixu.github.io/2019/10/31/happy-birthday/</loc>
-    
-    <lastmod>2019-10-31T11:28:43.784Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://alexixu.github.io/2019/10/27/reinforcement-learning01/</loc>
-    
-    <lastmod>2019-10-27T09:52:04.589Z</lastmod>
     
   </url>
   
